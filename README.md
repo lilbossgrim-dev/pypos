@@ -271,11 +271,20 @@ Bug reports, ideas and pull requests are welcome: [CONTRIBUTING.md](CONTRIBUTING
 
 ## Making it yours
 
-1. Create an empty repository on GitHub, then in this folder: `git init && git add . && git commit -m "Initial import" && git branch -M main && git remote add origin https://github.com/<TU_USUARIO>/<TU_REPOSITORIO>.git && git push -u origin main`.
-2. Search and replace the placeholders everywhere:
-   - `<TU_USUARIO>` / `<TU_REPOSITORIO>` → your GitHub user and repository (README files, `pyproject.toml` URLs, `CITATION.cff`, `docs/`).
-   - `<YEAR>` / `<COPYRIGHT HOLDER>` in `LICENSE`; the author in `pyproject.toml` and `CITATION.cff`.
-   - `<SECURITY_CONTACT>` in `SECURITY.md`, and the contact in `CODE_OF_CONDUCT.md`.
+1. Create an empty repository on GitHub, then in this folder run:
+
+   `git init && git add . && git commit -m "Initial import" && git branch -M main && git remote add origin https://github.com/lilbossgrim-dev/pypos.git && git push -u origin main`.
+
+2. Update the remaining project information:
+   - GitHub user: `lilbossgrim-dev`
+   - Repository: `pypos`
+   - Repository URL: `https://github.com/lilbossgrim-dev/pypos`
+   - Copyright year: `2026`
+   - Copyright holder: `lilbossgrim-dev`
+   - Author in `pyproject.toml` and `CITATION.cff`: `lilbossgrim-dev`
+   - `<SECURITY_CONTACT>` in `SECURITY.md`: replace with your security contact email.
+   - Update the contact information in `CODE_OF_CONDUCT.md`.
+
 3. Enable GitHub private vulnerability reporting (Settings → Security) and let the CI workflow run.
 
 ## License
