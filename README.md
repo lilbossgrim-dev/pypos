@@ -111,7 +111,7 @@ pypos doctor                # diagnose the installation (needs the cli extra)
 
 ## Quick start
 
-This is `examples/basic_pos.py`, which runs as-is (a test keeps this README in sync with it):
+This is `examples/basic_pos.py`, which runs as-is.
 
 ```python
 """The smallest complete POS: configure, stock a product, sell it in cash, print the receipt."""
