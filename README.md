@@ -4,7 +4,7 @@
 
 > **Project status: alpha (0.1.0).** The in-memory backend, domain services, plugin system and test-suite are verified. The SQLAlchemy/PostgreSQL backend, Alembic migrations, FastAPI integration and Typer CLI are written and covered by tests that run where those libraries are installed — see [docs/development-status.md](docs/development-status.md) for exactly what was and was not executed. Do not use it for real money before you have run the full suite against your own PostgreSQL.
 
-> **Placeholders:** this repository uses `<TU_USUARIO>/<TU_REPOSITORIO>` where your GitHub user/repo belong, and `<YEAR>`/`<COPYRIGHT HOLDER>` in `LICENSE`. See [Making it yours](#making-it-yours).
+> **Placeholders:** this repository belongs to [lilbossgrim-dev](https://github.com/lilbossgrim-dev) and is named `pypos`. The LICENSE copyright information is © 2026 lilbossgrim-dev. See [Making it yours](#making-it-yours).
 
 ## Table of contents
 
