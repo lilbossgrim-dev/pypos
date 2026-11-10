@@ -48,7 +48,7 @@ all = ["pypos-framework[api,cli,postgres]"]
 pypos = "pypos.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/lilbossgrim/dev/pypos"
+Homepage = "https://github.com/lilbossgrim-dev/pypos"
 Documentation = "https://github.com/lilbossgrim-dev/pypos/tree/main/docs"
 Issues = "https://github.com/lilbossgrim-dev/pypos/issues"
 
