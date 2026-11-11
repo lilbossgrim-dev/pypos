@@ -24,7 +24,7 @@ orientation.
 
 Maintainers may remove, edit or reject comments, commits, issues and other contributions that
 do not follow this Code of Conduct, and may temporarily or permanently ban contributors for
-behaviour they deem inappropriate. Report problems privately to `<SECURITY_CONTACT>` (replace
+behaviour they deem inappropriate. Report problems privately to `lilg_19` (replace
 with the maintainers' contact before publishing). Reports are handled confidentially.
 
 ## Scope and attribution
