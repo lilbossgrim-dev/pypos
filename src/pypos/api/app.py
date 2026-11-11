@@ -59,7 +59,7 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
     ctx_dep = context_dependency(pos)
     v1 = APIRouter(prefix="/v1")
 
-    # ---- errors --------------------------------------------------------
+    #errors
     @app.exception_handler(PyPOSError)
     async def _pypos_error(_: Request, exc: PyPOSError) -> JSONResponse:
         headers = {"WWW-Authenticate": "Bearer"} if exc.http_status == 401 else None
@@ -80,7 +80,7 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
         body = {"code": "validation_error", "message": str(exc), "details": {}}
         return JSONResponse({"error": body}, status_code=422)
 
-    # ---- health ---------------------------------------------------------
+    #health
     @app.get("/health", tags=["health"])
     def live() -> dict[str, str]:
         return {"status": "ok"}
@@ -90,13 +90,13 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
         h = pos.health()
         return JSONResponse(h, status_code=200 if h["status"] == "ok" else 503)
 
-    # ---- auth -----------------------------------------------------------
+    #auth
     @v1.post("/auth/login", response_model=s.TokenOut, tags=["auth"])
     def login(body: s.LoginIn) -> s.TokenOut:
         token = pos.users.login(body.username, body.password, body.merchant_id)
         return s.TokenOut(access_token=token, expires_in=pos.config.token_ttl_seconds)
 
-    # ---- products -------------------------------------------------------
+    #products
     @v1.get("/products", response_model=s.PageOut, tags=["products"])
     def list_products(
         q: str = "", page: int = Query(1, ge=1), page_size: int = Query(50, ge=1, le=500),
@@ -132,7 +132,7 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
     ) -> dict[str, Any]:
         return _product(pos.products.deactivate(ctx, product_id))
 
-    # ---- inventory ------------------------------------------------------
+    #inventory
     @v1.get("/inventory/stock", tags=["inventory"])
     def stock(
         product_id: str, warehouse_id: str, ctx: OperationContext = Depends(ctx_dep)
@@ -155,7 +155,7 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
                                  idempotency_key=idempotency_key)  # fmt: skip
         return to_dict(m)
 
-    # ---- sales ----------------------------------------------------------
+    #sales
     @v1.post("/sales", status_code=201, tags=["sales"])
     def create_cart(body: s.CartCreate, ctx: OperationContext = Depends(ctx_dep)) -> dict[str, Any]:
         return to_dict(pos.sales.create_cart(ctx, customer_id=body.customer_id, notes=body.notes))
@@ -199,7 +199,7 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
     def receipt(sale_id: str, ctx: OperationContext = Depends(ctx_dep)) -> str:
         return pos.sales.receipt(ctx, sale_id)
 
-    # ---- cash -----------------------------------------------------------
+    #cash
     @v1.post("/cash/open", status_code=201, tags=["cash"])
     def cash_open(body: s.CashOpenIn, ctx: OperationContext = Depends(ctx_dep)) -> dict[str, Any]:
         return to_dict(pos.cash.open(ctx, body.opening_float, body.notes))
@@ -213,7 +213,7 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
         cur = pos.cash.current(ctx)
         return {"session": to_dict(cur) if cur else None}
 
-    # ---- returns --------------------------------------------------------
+    #returns
     @v1.post("/returns", status_code=201, tags=["returns"])
     def create_return(body: s.ReturnIn, ctx: OperationContext = Depends(ctx_dep),
                       idempotency_key: str | None = Header(default=None)) -> dict[str, Any]:  # fmt: skip
@@ -227,7 +227,7 @@ def create_app(pos: POS, *, title: str = "PyPOS API") -> FastAPI:
                          ctx: OperationContext = Depends(ctx_dep)) -> dict[str, Any]:  # fmt: skip
         return to_dict(pos.returns.authorize(ctx, return_id, approve=body.approve, note=body.note))
 
-    # ---- reports --------------------------------------------------------
+    #reports
     @v1.get("/reports/sales", tags=["reports"])
     def sales_report(start: datetime | None = None, end: datetime | None = None, group: str = "day",
                      ctx: OperationContext = Depends(ctx_dep)) -> list[dict[str, Any]]:  # fmt: skip
