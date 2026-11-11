@@ -1,6 +1,6 @@
 site_name: PyPOS
 site_description: A modular, typed point-of-sale framework for Python.
-repo_url: https://github.com/<TU_USUARIO>/<TU_REPOSITORIO>
+repo_url: https://github.com/lilbossgrim-dev/pypos
 theme:
   name: material
 nav:
