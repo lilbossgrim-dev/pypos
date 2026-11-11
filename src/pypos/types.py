@@ -77,7 +77,7 @@ class Money:
                 "amount has more precision than the currency allows; use Money.of(...)"
             )
 
-    # ---- construction -------------------------------------------------
+    #construction
     @classmethod
     def of(cls, amount: Any, currency: str, rounding: str = ROUND_HALF_UP) -> Money:
         value = to_decimal(amount, "amount")
@@ -99,7 +99,7 @@ class Money:
             total = total + item
         return total
 
-    # ---- arithmetic ---------------------------------------------------
+    #arithmetic
     def _check(self, other: Money) -> None:
         if not isinstance(other, Money):
             raise TypeError("operands must be Money")
@@ -157,7 +157,7 @@ class Money:
             raise ValidationError("parts must be positive")
         return self.allocate([1] * parts)
 
-    # ---- comparison ---------------------------------------------------
+    #comparison
     def __lt__(self, other: Money) -> bool:
         self._check(other)
         return self.amount < other.amount
@@ -183,7 +183,7 @@ class Money:
     def is_positive(self) -> bool:
         return self.amount > 0
 
-    # ---- conversion ---------------------------------------------------
+    #conversion
     def to_minor(self) -> int:
         return int(self.amount.scaleb(currency_exponent(self.currency)))
 
