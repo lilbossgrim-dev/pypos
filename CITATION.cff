@@ -6,6 +6,6 @@ version: 0.1.0
 license: MIT
 # Replace the placeholders below before publishing.
 authors:
-  - family-names: "<APELLIDO>"
-    given-names: "<NOMBRE>"
-repository-code: "https://github.com/<TU_USUARIO>/<TU_REPOSITORIO>"
+  - family-names: "lilbossgrim-dev"
+    given-names: "Uriel"
+repository-code: "https://github.com/lilbossgrim/dev/pypos"
