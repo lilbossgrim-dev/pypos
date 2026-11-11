@@ -81,7 +81,7 @@ class POS:
         self.plugin_manager = PluginManager(__version__)
         self.plugin_manager.load(self, list(plugins or []), dict(plugin_config or {}))
 
-    # ---- lifecycle ----------------------------------------------------
+    #lifecycle
     def initialize(self) -> POS:
         """Create the schema (if ``auto_create_schema``) and seed roles/units. Idempotent."""
         if self.config.auto_create_schema:
@@ -101,7 +101,7 @@ class POS:
     def __exit__(self, *exc: object) -> None:
         self.close()
 
-    # ---- helpers ------------------------------------------------------
+    #helpers
     def tx(self) -> Any:
         """Open a (re-entrant) transaction: ``with pos.tx() as tx: ...``."""
         return self.store.transaction()
