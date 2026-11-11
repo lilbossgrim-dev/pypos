@@ -6,8 +6,7 @@ PyPOS is in **alpha** (0.1.x). Only the latest release/main branch receives fixe
 
 ## Reporting a vulnerability
 
-Please **do not** open a public issue. Report privately to `<SECURITY_CONTACT>` (replace this
-placeholder with your contact address), or use GitHub's *Report a vulnerability* feature
+Please **do not** open a public issue. Report privately to `lilg_19` or use GitHub's *Report a vulnerability* feature
 (Settings → Security → enable private vulnerability reporting). Include a description, steps to
 reproduce, affected version and impact. We aim to acknowledge reports promptly and to coordinate
 disclosure with you.
