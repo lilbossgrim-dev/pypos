@@ -1,0 +1,35 @@
+site_name: PyPOS
+site_description: A modular, typed point-of-sale framework for Python.
+repo_url: https://github.com/<TU_USUARIO>/<TU_REPOSITORIO>
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Getting started:
+      - Installation: installation.md
+      - Quick start: quickstart.md
+      - Configuration: configuration.md
+  - Concepts:
+      - Architecture: architecture.md
+      - Taxation: taxation.md
+      - Permissions: permissions.md
+      - Branches: branches.md
+  - Modules:
+      - Products: products.md
+      - Inventory: inventory.md
+      - Sales: sales.md
+      - Payments: payments.md
+      - Cash management: cash-management.md
+      - Customers and suppliers: customers.md
+      - Purchasing: purchasing.md
+      - Returns: returns.md
+  - Extending:
+      - Plugins: plugins.md
+      - HTTP API: api.md
+      - CLI: cli.md
+  - Operating:
+      - Testing: testing.md
+      - Deployment: deployment.md
+      - Security: security.md
+      - Troubleshooting: troubleshooting.md
+      - Development status: development-status.md

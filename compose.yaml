@@ -1,0 +1,41 @@
+# Local/demo stack: PostgreSQL + the PyPOS HTTP API.
+# Put POSTGRES_PASSWORD and PYPOS_SECRET_KEY in a `.env` file (see .env.example).
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: pypos
+      POSTGRES_DB: pypos
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pypos -d pypos"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    build: .
+    command: ["pypos", "db-upgrade"]
+    environment: &pypos_env
+      PYPOS_DATABASE_URL: postgresql+psycopg://pypos:${POSTGRES_PASSWORD}@db:5432/pypos
+      PYPOS_SECRET_KEY: ${PYPOS_SECRET_KEY:?set PYPOS_SECRET_KEY in .env}
+      PYPOS_CURRENCY: ${PYPOS_CURRENCY:-MXN}
+      PYPOS_TIMEZONE: ${PYPOS_TIMEZONE:-UTC}
+      PYPOS_AUTO_CREATE_SCHEMA: "false"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  api:
+    build: .
+    environment: *pypos_env
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+volumes:
+  pgdata:

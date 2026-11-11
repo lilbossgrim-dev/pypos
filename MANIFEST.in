@@ -1,0 +1,8 @@
+include LICENSE README.md README.es.md CHANGELOG.md CITATION.cff Makefile alembic.ini mkdocs.yml
+include .env.example
+recursive-include docs *.md
+recursive-include examples *.py
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include src/pypos/persistence/migrations *.py *.mako
+global-exclude __pycache__ *.py[cod]

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use PyPOS, please cite it as below."
+title: "PyPOS: a modular point-of-sale framework for Python"
+type: software
+version: 0.1.0
+license: MIT
+# Replace the placeholders below before publishing.
+authors:
+  - family-names: "<APELLIDO>"
+    given-names: "<NOMBRE>"
+repository-code: "https://github.com/<TU_USUARIO>/<TU_REPOSITORIO>"
