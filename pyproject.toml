@@ -9,7 +9,7 @@ description = "PyPOS: a modular, typed point-of-sale framework for Python."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "PyPOS contributors" }]
+authors = [{ name = "lilbossgrim-dev" }]
 keywords = ["pos", "point-of-sale", "retail", "inventory", "framework"]
 classifiers = [
     "Development Status :: 3 - Alpha",
