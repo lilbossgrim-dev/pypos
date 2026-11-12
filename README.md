@@ -275,18 +275,6 @@ Bug reports, ideas and pull requests are welcome: [CONTRIBUTING.md](CONTRIBUTING
 
    `git init && git add . && git commit -m "Initial import" && git branch -M main && git remote add origin https://github.com/lilbossgrim-dev/pypos.git && git push -u origin main`.
 
-2. Update the remaining project information:
-   - GitHub user: `lilbossgrim-dev`
-   - Repository: `pypos`
-   - Repository URL: `https://github.com/lilbossgrim-dev/pypos`
-   - Copyright year: `2026`
-   - Copyright holder: `lilbossgrim-dev`
-   - Author in `pyproject.toml` and `CITATION.cff`: `lilbossgrim-dev`
-   - `lilg19_` in `SECURITY.md`: replace with your security contact email.
-   - Update the contact information in `CODE_OF_CONDUCT.md`.
-
-3. Enable GitHub private vulnerability reporting (Settings → Security) and let the CI workflow run.
-
 ## License
 
 [MIT](LICENSE).
