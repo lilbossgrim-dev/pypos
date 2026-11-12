@@ -282,7 +282,7 @@ Bug reports, ideas and pull requests are welcome: [CONTRIBUTING.md](CONTRIBUTING
    - Copyright year: `2026`
    - Copyright holder: `lilbossgrim-dev`
    - Author in `pyproject.toml` and `CITATION.cff`: `lilbossgrim-dev`
-   - `<SECURITY_CONTACT>` in `SECURITY.md`: replace with your security contact email.
+   - `lilg19_` in `SECURITY.md`: replace with your security contact email.
    - Update the contact information in `CODE_OF_CONDUCT.md`.
 
 3. Enable GitHub private vulnerability reporting (Settings → Security) and let the CI workflow run.
